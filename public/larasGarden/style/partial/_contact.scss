@@ -1,0 +1,189 @@
+/* 
+---------------------------------------------
+reservation
+--------------------------------------------- 
+*/
+
+#reservation .section-heading {
+    margin-bottom: 30px;
+}
+
+#reservation .section-heading h6 {
+    color: #5C7B74;
+    font-size: 20px;
+}
+
+#reservation .section-heading h2 {
+    color: #fff;
+    font-weight: 700;
+}
+
+#reservation .section-heading h6:before {
+    background-color: #fff;
+}
+
+#reservation p {
+    color: #fff;
+    margin-bottom: 65px;
+    font-size: 18px;
+}
+
+#reservation {
+    padding: 120px 0px;
+    background-image: url("../image/foto_reservation.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#reservation::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#reservation .phone,
+#reservation .message {
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0px 0px 20px 0px;
+}
+
+#reservation .phone i,
+#reservation .message i {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    text-align: center;
+    line-height: 70px;
+    color: #fff;
+    background-color: #5C7B74;
+    border-radius: 50%;
+    font-size: 24px;
+    margin-top: -35px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#reservation .phone h4,
+#reservation .message h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#reservation .phone span a,
+#reservation .message span a {
+    font-size: 18px;
+    color: #2a2a2a;
+    transition: all .3s;
+}
+
+#reservation .phone span a:hover,
+#reservation .message span a:hover {
+    color: #5C7B74;
+}
+
+#contact {
+    margin-left: 30px;
+    padding: 45px 30px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+#contact h4 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+    color: #2a2a2a;
+    margin-bottom: 30px;
+}
+
+.datepicker-days {
+    padding: 30px;
+    cursor: pointer;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    color: #2a2a2a;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    width: 100%;
+    height: 46px;
+    border-radius: 5px;
+    outline: none;
+    padding-top: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-bottom: 15px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-color: #5C7B74;
+}
+
+.contact-form button {
+    margin-top: -10px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #5C7B74;
+    padding: 12px 25px;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    display: inline-block;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: all .3s;
+}
+
+.contact-form button:hover {
+    opacity: .9;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: none;
+    padding: 20px;
+}
+
+.contact-form ::-webkit-input-placeholder {
+    /* Edge */
+    color: #2a2a2a;
+}
+
+.contact-form :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #2a2a2a;
+}
+
+.contact-form ::placeholder {
+    color: #2a2a2a;
+}
+
+@media (max-width: 992px) {
+    #reservation .phone {
+        margin-bottom: 60px;
+    }
+
+    #contact {
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+}

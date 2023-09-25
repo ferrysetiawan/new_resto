@@ -1,0 +1,115 @@
+body {
+    font-family: 'corbel';
+    font-weight: 300;
+    color: #000;
+    background-color: #f6f5f1;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'corbel';
+    font-weight: 400;
+}
+
+.btn:hover,
+a:hover {
+    text-decoration: none;
+    color: #5C7B74;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #046434;
+    border-color: #046434;
+    color: #fff;
+    border-radius: 30px;
+    padding: 9px 25px;
+    text-transform: capitalize;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-primary:hover {
+    background-color: #049B34;
+    border-color: #049B34;
+    color: #fff;
+}
+
+.btn-shadow {
+    box-shadow: -5px 8px 20px 0px rgba(229, 16, 2, 0.15);
+}
+
+.btn-icon {
+    color: #000;
+}
+
+.btn-icon .lnr {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.overlay {
+    position: relative;
+}
+
+.overlay:after {
+    position: absolute;
+    display: block;
+    content: "";
+    background: #000;
+    opacity: 0.2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.overlay .section-content {
+    position: relative;
+    z-index: 1;
+}
+
+.heading-section {
+    margin-bottom: 30px;
+}
+
+.food_menu {
+    padding: 20px 0px 20px;
+}
+
+.gray_bg {
+    background-color: #f6f5f1;
+}
+
+.margin-bottom {
+    margin-bottom: 70px;
+}
+
+.margin-top {
+    margin-top: 70px;
+}
+
+
+  

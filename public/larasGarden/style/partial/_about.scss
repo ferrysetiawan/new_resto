@@ -1,0 +1,28 @@
+.section-padding-about {
+    padding-top: 20px;
+    padding-bottom: 65px;
+}
+
+@media (min-width: 992px) {
+    .section-padding-about {
+        padding-top: 20px;
+        padding-bottom: 160px;
+    }
+}
+
+.subheading-about {
+    color: #5C7B74;
+    font-size: 20px;
+}
+
+#about {
+    padding-top: 70px;
+    background-color: #fff;
+    p {
+        font-size: 20px;
+    }
+
+    h6 {
+        color: #5C7B74;
+    }
+}
