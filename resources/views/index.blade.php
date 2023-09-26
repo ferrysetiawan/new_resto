@@ -10,6 +10,21 @@
                 <a href="#food_menu" class="btn-get-started scrollto">Explore Menu</a>
             </div>
         </div>
+        <div class="col-lg-12 col-12 mt-auto d-flex justify-content-end flex-column flex-lg-row event">
+            <h5 class="text-white">
+                <strong>OPEN DAILY</strong><br>
+                11.00 - 22.00 Sat-Thue<br>
+                13.00 - 22.00 Fri
+            </h5>
+            <span class="d-none d-lg-block mx-3 garis-vertikal"></span>
+            <div class="location-wrap mx-3 py-3 py-lg-0">
+                <h5 class="text-white">
+                    <strong>LIVE MUSIC</strong><br>
+                    Lunch (SUN-WED)<br>
+                    Dinner (FRI-SAT)<br>
+                </h5>
+            </div>
+    </div>
     </div>
 </section>
 <section class="section-padding-about section" id="about">
@@ -69,8 +84,8 @@
                     } else {
                         $kode = "".''.($no + 1);
                     }
-                } 
-                
+                }
+
             @endphp
             @if ($item->id % 2 == 1)
             <div class="row mt-5">
@@ -99,7 +114,7 @@
                 </div>
             </div>
             @endif
-            
+
         @endforeach
         {{-- <div class="row">
             <div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
@@ -131,7 +146,7 @@
                         <h3 class="tit-mainmenu tit10 p-b-25">
                             {{ $item->nama_kategori }}
                         </h3>
-    
+
                         <!-- Item mainmenu -->
                         <div class="menu-item">
                             <div class="menu-img">
@@ -144,7 +159,7 @@
                         </div>
                     </div>
                     @endif
-                
+
                 @endforeach
             </div>
         </div> --}}
@@ -326,7 +341,7 @@
                 </div>
             </div>
             @endforeach
-            
+
             <div class="col-md-12 text-center">
                 <a href="{{ route('news.index') }}" class="btn btn-info px-4 py-2">Baca Selengkapnya</a>
             </div>
