@@ -8,7 +8,7 @@
 
    <!-- Favicons -->
    <link href="{{ asset('larasGarden/image/favicon.png') }}" rel="icon">
-   
+
   <link rel="stylesheet" href="{{ asset('larasGarden/vendor/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('larasGarden/vendor/bootstrap-icons/bootstrap-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('larasGarden/vendor/glightbox/css/glightbox.min.css') }}">
@@ -22,7 +22,16 @@
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"> -->
   <link rel="stylesheet" href="{{ asset('larasGarden/style/style.css') }}">
   @yield('style')
-  <title>Laras Garden</title>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BQS560ZGY"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1BQS560ZGY');
+    </script>
+  <title>Laras Garden Resto</title>
 </head>
 
 <body>
@@ -50,7 +59,7 @@
   </header>
 
   @yield('content')
-  
+
   <!-- section footer -->
   <footer>
     <div class="container">

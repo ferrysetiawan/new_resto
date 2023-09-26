@@ -21,7 +21,16 @@
   <link rel="stylesheet" href="{{ asset('larasGarden/style/util.css') }}">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"> -->
   <link rel="stylesheet" href="{{ asset('larasGarden/style/style.css') }}">
-  <title>Laras Garden</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BQS560ZGY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1BQS560ZGY');
+  </script>
+  <title>Laras Garden Resto</title>
 </head>
 
 <body>
@@ -37,7 +46,7 @@
           <li><a class="nav-link scrollto" href="#food_menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="#team">Tim</a></li>
           @if ($countEvent >= 1)
-          <li><a class="nav-link scrollto" href="#event">Acara</a></li> 
+          <li><a class="nav-link scrollto" href="#event">Acara</a></li>
           @endif
           @if ($countNews >= 1)
           <li><a class="nav-link scrollto" href="#news">Berita</a></li>
@@ -53,7 +62,7 @@
   </header>
 
   @yield('content')
-  
+
   <!-- section footer -->
   <footer>
     <div class="container">

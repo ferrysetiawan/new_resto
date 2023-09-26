@@ -8,7 +8,7 @@
 
    <!-- Favicons -->
    <link href="{{ asset('larasGarden/image/favicon.png') }}" rel="icon">
-   
+
   <link rel="stylesheet" href="{{ asset('larasGarden/vendor/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('larasGarden/vendor/bootstrap-icons/bootstrap-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('larasGarden/vendor/glightbox/css/glightbox.min.css') }}">
@@ -21,8 +21,17 @@
   <link rel="stylesheet" href="{{ asset('larasGarden/style/util.css') }}">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"> -->
   <link rel="stylesheet" href="{{ asset('larasGarden/style/style.css') }}">
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BQS560ZGY"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1BQS560ZGY');
+    </script>
   @yield('style')
-  <title>Laras Garden</title>
+  <title>Laras Garden Resto</title>
 </head>
 
 <body>
@@ -38,7 +47,7 @@
           <li><a class="nav-link scrollto" href="{{ route('home') }}/#food_menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="{{ route('home') }}/#chef">Chef</a></li>
           @if ($countEvent >= 1)
-            <li><a class="nav-link scrollto" href="{{ route('home') }}/#event">Event</a></li> 
+            <li><a class="nav-link scrollto" href="{{ route('home') }}/#event">Event</a></li>
           @endif
           <li><a class="nav-link scrollto active" href="{{ route('news.index') }}">News</a></li>
           <li><a class="nav-link scrollto" href="{{ route('home') }}/#gallery">Gallery</a></li>
@@ -52,7 +61,7 @@
   </header>
 
   @yield('content')
-  
+
   <!-- section footer -->
   <footer>
     <div class="container">
