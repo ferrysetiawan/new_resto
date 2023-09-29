@@ -23,6 +23,7 @@ class NewsController extends Controller
     public function index()
     {
         $countEvent = $this->countEvent;
+        $countNews  = $this->countNews;
         $recentPost = $this->recentPost;
         $categories = $this->categories;
         $tags = $this->tags;
@@ -33,6 +34,7 @@ class NewsController extends Controller
     public function search(Request $request)
     {
         $countEvent = $this->countEvent;
+        $countNews  = $this->countNews;
         $recentPost = $this->recentPost;
         $categories = $this->categories;
         $tags       = $this->tags;
@@ -43,6 +45,7 @@ class NewsController extends Controller
 
         return view('news.search', [
             'countEvent' => $countEvent,
+            'countNews'  => $countNews,
             'recentPost' => $recentPost,
             'categories' => $categories,
             'tags' => $tags,
@@ -55,6 +58,7 @@ class NewsController extends Controller
     public function category($slug)
     {
         $countEvent = $this->countEvent;
+        $countNews  = $this->countNews;
         $recentPost = $this->recentPost;
         $categories = $this->categories;
         $tags = $this->tags;
@@ -65,6 +69,7 @@ class NewsController extends Controller
 
         return view('news.kategori',[
             'countEvent' =>$countEvent,
+            'countNews' =>$countNews,
             'posts' => $posts,
             'categories' => $categories,
             'recentPost' => $recentPost,
@@ -77,6 +82,7 @@ class NewsController extends Controller
     {
         $countEvent = $this->countEvent;
         $recentPost = $this->recentPost;
+        $countNews  = $this->countNews;
         $categories = $this->categories;
         $tags = $this->tags;
         $posts = Post::publish()->whereHas('tag', function($query) use ($slug){
@@ -86,6 +92,7 @@ class NewsController extends Controller
 
         return view('news.tag',[
             'countEvent' => $countEvent,
+            'countNews' => $countNews,
             'posts' => $posts,
             'categories' => $categories,
             'recentPost' => $recentPost,
@@ -97,10 +104,11 @@ class NewsController extends Controller
     public function show($slug)
     {
         $countEvent = $this->countEvent;
+        $countNews  = $this->countNews;
         $recentPost = $this->recentPost;
         $categories = $this->categories;
         $tags = $this->tags;
         $post = Post::where('slug', $slug)->first();
-        return view('news.detail', compact('post','recentPost','categories','tags', 'countEvent'));
+        return view('news.detail', compact('post','recentPost','categories','tags', 'countEvent', 'countNews'));
     }
 }
