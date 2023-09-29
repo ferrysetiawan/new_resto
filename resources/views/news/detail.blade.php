@@ -1,5 +1,9 @@
 @extends('layouts.news')
 
+@section('title')
+    {{ $post->judul }}
+@endsection
+
 @section('content')
 <section class="breadcrumbs">
     <div class="container">
@@ -7,9 +11,9 @@
         <div class="d-flex justify-content-between align-items-center">
             <h2>News</h2>
             <ol>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">News</a></li>
-                <li>Detail News</li>
+                <li><a href="{{ route('home') }}">Beranda</a></li>
+                <li><a href="{{ route('news.index') }}">berita</a></li>
+                <li>Detail Berita</li>
             </ol>
         </div>
 
@@ -52,7 +56,7 @@
                             <li><a href="{{ route('news.category', $item->slug) }}">{{ $item->nama_kategori }}</a></li>
                             @endforeach
                         </ul>
-        
+
                         <i class="bi bi-tags"></i>
                         <ul class="tags">
                             @foreach ($post->tag as $item)

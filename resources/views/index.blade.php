@@ -13,7 +13,7 @@
         <div class="col-lg-12 col-12 mt-auto d-flex justify-content-end flex-column flex-lg-row event">
             <h5 class="text-white">
                 <strong>OPEN DAILY</strong><br>
-                11.00 - 22.00 Sat-Thue<br>
+                11.00 - 22.00 Sat-Thu<br>
                 13.00 - 22.00 Fri
             </h5>
             <span class="d-none d-lg-block mx-3 garis-vertikal"></span>

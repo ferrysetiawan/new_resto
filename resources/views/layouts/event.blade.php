@@ -42,15 +42,19 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="{{ route('home') }}/#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('home') }}/#about">About</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('home') }}/#food_menu">Menu</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('home') }}/#chef">Chef</a></li>
-          <li><a class="nav-link scrollto active" href="{{ route('home') }}/#event">Event</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('news.index') }}">News</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('home') }}/#gallery">Gallery</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('home') }}/#reservation">Contact Us</a></li>
-          <li><a class="getstarted scrollto" href="#about">E - Menu</a></li>
+            <li><a class="nav-link scrollto" href="{{ route('home') }}/#hero">Beranda</a></li>
+            <li><a class="nav-link scrollto" href="{{ route('home') }}/#about">Tentang Kami</a></li>
+            <li><a class="nav-link scrollto" href="{{ route('home') }}/#food_menu">Menu</a></li>
+            <li><a class="nav-link scrollto" href="{{ route('home') }}/#team">Tim</a></li>
+            @if ($countEvent >= 1)
+            <li><a class="nav-link scrollto active" href="{{ route('home') }}/#event">Acara</a></li>
+            @endif
+            @if ($countNews >= 1)
+            <li><a class="nav-link scrollto" href="{{ route('news.index') }}">Berita</a></li>
+            @endif
+            <li><a class="nav-link scrollto o" href="{{ route('home') }}/#gallery">Galeri</a></li>
+            <li><a class="nav-link scrollto" href="{{ route('home') }}/#reservation">Hubungi Kami</a></li>
+            <li><a class="getstarted scrollto" target="_blank" href="https://larasgardenreston.majooshop.id/">E - Menu</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
