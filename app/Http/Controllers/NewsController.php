@@ -15,6 +15,7 @@ class NewsController extends Controller
     {
         $this->categories = CategoriesNews::all();
         $this->countEvent = Event::where('tanggal', '>=', Carbon::now())->count();
+        $this->countNews  = Post::count();
         $this->tags = Tags::all();
         $this->recentPost = Post::publish()->latest()->take(10)->get();
     }
@@ -26,7 +27,7 @@ class NewsController extends Controller
         $categories = $this->categories;
         $tags = $this->tags;
         $posts = Post::publish()->paginate(5);
-        return view('news.index', compact('countEvent','posts','categories','recentPost','tags'));
+        return view('news.index', compact('countEvent','posts','categories','recentPost','tags','countNews'));
     }
 
     public function search(Request $request)
