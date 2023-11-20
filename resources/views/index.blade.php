@@ -20,8 +20,8 @@
             <div class="location-wrap mx-3 py-3 py-lg-0">
                 <h5 class="text-white">
                     <strong>LIVE MUSIC</strong><br>
-                    Lunch (SUN-WED)<br>
-                    Dinner (FRI-SAT)<br>
+                    Lunch (SUN-TUE-WED-THU)<br>
+                    Dinner (FRI-SAT-SUN)<br>
                 </h5>
             </div>
     </div>
