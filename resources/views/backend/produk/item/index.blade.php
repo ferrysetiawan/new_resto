@@ -1,79 +1,70 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.global')
 
 @section('title', 'Product')
 
 @section('style')
-<!-- Datatables css -->
-<link href="{{ asset('backend/assets/css/vendor/dataTables.bootstrap5.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('backend/assets/css/vendor/responsive.bootstrap5.css') }}" rel="stylesheet" type="text/css" />
+
 @endsection
 
 @section('content')
-<!-- start page title -->
-<div class="row">
-    <div class="col-12">
-        <div class="page-title-box">
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Product</li>
-                </ol>
-            </div>
-            <h4 class="page-title">Product</h4>
-        </div>
+<section class="section">
+    <div class="section-header">
+        <h1>Spesial Menu</h1>
     </div>
-</div>
-<!-- end page title -->
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <table class="table dt-responsive nowrap w-100" id="basic-datatable">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Image</th>
-                            <th>Product Name</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($products as $no=>$product)
-                        <tr>
-                            <td>{{ $no + 1 }}</td>
-                            <td><img src="{{ asset($product->gambar) }}" width="100px" alt=""></td>
-                            <td>{{ $product->nama_produk }}</td>
-                            <td>{{ $product->category->nama_kategori }}</td>
-                            <td>{{ $product->harga }}</td>
-                            <td>
-                                <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning px-4">Edit</a>
-                                <button onclick="destroy(this.id)" id="{{$product->id}}"
-                                    class="btn btn-danger px-4">Delete</button>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table dt-responsive nowrap w-100" id="basic-datatable">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($products as $no=>$product)
+                                <tr>
+                                    <td>{{ $no + 1 }}</td>
+                                    <td><img src="{{ asset($product->gambar) }}" width="100px" alt=""></td>
+                                    <td>{{ $product->nama_produk }}</td>
+                                    <td>{{ $product->category->nama_kategori }}</td>
+                                    <td>{{ $product->harga }}</td>
+                                    <td>
+                                        <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning px-4">Edit</a>
+                                        <button onclick="destroy(this.id)" id="{{$product->id}}"
+                                            class="btn btn-danger px-4">Delete</button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
 
 @section('js')
 <!-- Datatables js -->
-<script src="{{ asset('backend/assets/js/vendor/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/vendor/dataTables.bootstrap5.js') }}"></script>
-<script src="{{ asset('backend/assets/js/vendor/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/vendor/responsive.bootstrap5.min.js') }}"></script>
 
-<!-- Datatable Init js -->
-<script src="{{ asset('backend/assets/js/pages/demo.datatable-init.js') }}"></script>
 <script>
     $(document).ready(function () {
-        $('.dataTables_filter input').after('<a href="{{ route('product.create') }}" class="btn btn-info ms-2">Create</a>')
+        $("#basic-datatable").DataTable({
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                    destroy: true,
+                    responsive: true
+        });
+        $('.dataTables_filter input').after('<a href="{{ route('product.create') }}" class="btn btn-info ml-2">Create</a>')
     });
 
     function destroy(id) {

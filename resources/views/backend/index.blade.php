@@ -1,11 +1,11 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.global')
 
 @section('title')
     Dashboard
 @endsection
 
 @section('content')
-<div class="row">
+{{-- <div class="row">
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
@@ -16,7 +16,7 @@
             <h4 class="page-title">Dashboard</h4>
         </div>
     </div>
-</div>   
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card widget-inline">
@@ -66,6 +66,14 @@
             </div>
         </div> <!-- end card-box-->
     </div> <!-- end col-->
-</div>
+</div> --}}
+<section class="section">
+    <div class="section-header">
+        <h1>Dashboard</h1>
+    </div>
+    <div class="section-body">
+
+    </div>
+</section>
 <!-- end row-->
 @endsection

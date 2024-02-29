@@ -1,4 +1,4 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.global')
 
 @section('title', 'Hero')
 
@@ -9,57 +9,91 @@
 @endsection
 
 @section('content')
-<!-- start page title -->
-<div class="row">
-    <div class="col-12">
-        <div class="page-title-box">
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Hero</li>
-                </ol>
-            </div>
-            <h4 class="page-title">Hero</h4>
-        </div>
+
+<section class="section">
+    <div class="section-header">
+        <h1>Hero</h1>
     </div>
-</div>
-<!-- end page title -->
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <table class="table table-bordered table-centered mb-0">
-                    <thead>
-                        <tr>
-                            <th>Judul Hero</th>
-                            <th>Background</th>
-                            <th>Deskripsi</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($heroes as $hero)
-                            <tr>
-                                <td>{!! $hero->judul_hero !!}</td>
-                                <td><img src="{{ asset($hero->gambar) }}" width="150px" alt=""></td>
-                                <td>{{ $hero->deskripsi }}</td>
-                                <td width="20%"><a href="{{ route('hero.edit', $hero->id) }}" class="btn btn-warning px-5">Edit</a></td>
-                            </tr> 
-                        @empty
-                            <tr>
-                                <td class="text-center">Data Masih Kosong</td>
-                                <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#centermodal">Create</button></td>
-                            </tr>
-                        @endforelse
-                        
-                    </tbody>
-                    
-                </table>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered table-centered mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Judul Hero</th>
+                                    <th>Background</th>
+                                    <th>Deskripsi</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($heroes as $hero)
+                                    <tr>
+                                        <td>{!! $hero->judul_hero !!}</td>
+                                        <td><img src="{{ asset($hero->gambar) }}" width="150px" alt=""></td>
+                                        <td>{{ $hero->deskripsi }}</td>
+                                        <td width="20%"><a href="{{ route('hero.edit', $hero->id) }}" class="btn btn-warning px-5">Edit</a></td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td class="text-center" colspan="3">Data Masih Kosong</td>
+                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">Create</button></td>
+                                    </tr>
+                                @endforelse
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</section>
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Add Hero</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addTeacherForm" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1">Title Hero</label>
+                        <input type="text" name="judul_hero" class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="">Background</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button id="button-background" data-input="input_post_background"
+                                    class="btn btn-primary" type="button">
+                                    Browse
+                                </button>
+                            </div>
+                            <input id="input_post_background" name="gambar" value="{{ old('gambar') }}" type="text" class="form-control" placeholder="" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1">Deskripsi</label>
+                        <input type="text" name="deskripsi" class="form-control" placeholder="">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary add_teacher">Submit Form</button>
+            </div>
+        </div>
+    </div>
 </div>
-@include('backend.hero.addmodal')
+
+{{-- @include('backend.hero.addmodal') --}}
 @endsection
 
 

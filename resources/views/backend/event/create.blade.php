@@ -1,4 +1,4 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.global')
 
 @section('title', 'Add Event')
 
@@ -7,99 +7,90 @@
 @endsection
 
 @section('content')
-<!-- start page title -->
-<div class="row">
-    <div class="col-12">
-        <div class="page-title-box">
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Event</a></li>
-                    <li class="breadcrumb-item active">Create Event</li>
-                </ol>
-            </div>
-            <h4 class="page-title">Event</h4>
-        </div>
+<section class="section">
+    <div class="section-header">
+        <h1>Add Event</h1>
     </div>
-</div>
-<!-- end page title -->
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <form action="{{ route('event.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="mb-3">
-                        <label class="form-label" for="nama_event">Nama Event</label>
-                        <input type="text" name="nama_event" class="form-control {{$errors->first('nama_event') ? "is-invalid": ""}}" placeholder="Nama Event" value="{{ old('nama_event') }}">
-                        <div class="invalid-feedback">
-                            {{$errors->first('nama_event')}}
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"> Background </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <button id="button-background" data-input="input_post_background"
-                                    class="btn btn-primary" type="button">
-                                    Browse
-                                </button>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ route('event.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label" for="nama_event">Nama Event</label>
+                                <input type="text" name="nama_event" class="form-control {{$errors->first('nama_event') ? "is-invalid": ""}}" placeholder="Nama Event" value="{{ old('nama_event') }}">
+                                <div class="invalid-feedback">
+                                    {{$errors->first('nama_event')}}
+                                </div>
                             </div>
-                            <input id="input_post_background" name="background" value="{{ old('background') }}" type="text" class="form-control {{$errors->first('background') ? "is-invalid": ""}}" placeholder="" readonly />
-                            <div class="invalid-feedback">
-                                {{$errors->first('background')}}
+                            <div class="mb-3">
+                                <label class="form-label"> Background </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button id="button-background" data-input="input_post_background"
+                                            class="btn btn-primary" type="button">
+                                            Browse
+                                        </button>
+                                    </div>
+                                    <input id="input_post_background" name="background" value="{{ old('background') }}" type="text" class="form-control {{$errors->first('background') ? "is-invalid": ""}}" placeholder="" readonly />
+                                    <div class="invalid-feedback">
+                                        {{$errors->first('background')}}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"> Thumbnail </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <button id="button-thumbnail" data-input="input_post_thumbnail"
-                                    class="btn btn-primary" type="button">
-                                    Browse
-                                </button>
+                            <div class="mb-3">
+                                <label class="form-label"> Thumbnail </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button id="button-thumbnail" data-input="input_post_thumbnail"
+                                            class="btn btn-primary" type="button">
+                                            Browse
+                                        </button>
+                                    </div>
+                                    <input id="input_post_thumbnail" name="thumbnail" value="{{ old('thumbnail') }}" type="text" class="form-control {{$errors->first('thumbnail') ? "is-invalid": ""}}" placeholder="" readonly />
+                                    <div class="invalid-feedback">
+                                        {{$errors->first('thumbnail')}}
+                                    </div>
+                                </div>
                             </div>
-                            <input id="input_post_thumbnail" name="thumbnail" value="{{ old('thumbnail') }}" type="text" class="form-control {{$errors->first('thumbnail') ? "is-invalid": ""}}" placeholder="" readonly />
-                            <div class="invalid-feedback">
-                                {{$errors->first('thumbnail')}}
+                            <div class="mb-3">
+                                <label class="form-label" for="nama_penyelenggara">Nama Penyelenggara</label>
+                                <input type="text" name="nama_penyelenggara" class="form-control {{$errors->first('nama_penyelenggara') ? "is-invalid": ""}}" placeholder="Nama Penyelenggara" value="{{ old('nama_penyelenggara') }}">
+                                <div class="invalid-feedback">
+                                    {{$errors->first('nama_penyelenggara')}}
+                                </div>
                             </div>
-                        </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="nama_event">Tangal Event</label>
+                                <input type="datetime-local" name="tanggal" class="form-control {{$errors->first('tanggal') ? "is-invalid": ""}}" placeholder="First name" value="">
+                                <div class="invalid-feedback">
+                                    {{$errors->first('tanggal')}}
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="nama_event">Summary</label>
+                                <textarea name="summary" class="form-control {{$errors->first('summary') ? "is-invalid": ""}}" id="" cols="5" rows="5">{{ old('summary') }}</textarea>
+                                <div class="invalid-feedback">
+                                    {{$errors->first('summary')}}
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="nama_event">Detail Event</label>
+                                <textarea id="input_post_content" name="detail_event" class="form-control {{$errors->first('detail_event') ? "is-invalid": ""}}" id="" cols="5" rows="5"></textarea>
+                                <div class="valid-feedback">
+                                    {{$errors->first('detail_event')}}
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </form>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="nama_penyelenggara">Nama Penyelenggara</label>
-                        <input type="text" name="nama_penyelenggara" class="form-control {{$errors->first('nama_penyelenggara') ? "is-invalid": ""}}" placeholder="Nama Penyelenggara" value="{{ old('nama_penyelenggara') }}">
-                        <div class="invalid-feedback">
-                            {{$errors->first('nama_penyelenggara')}}
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="nama_event">Tangal Event</label>
-                        <input type="datetime-local" name="tanggal" class="form-control {{$errors->first('tanggal') ? "is-invalid": ""}}" placeholder="First name" value="">
-                        <div class="invalid-feedback">
-                            {{$errors->first('tanggal')}}
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="nama_event">Summary</label>
-                        <textarea name="summary" class="form-control {{$errors->first('summary') ? "is-invalid": ""}}" id="" cols="5" rows="5">{{ old('summary') }}</textarea>
-                        <div class="invalid-feedback">
-                            {{$errors->first('summary')}}
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="nama_event">Detail Event</label>
-                        <textarea id="input_post_content" name="detail_event" class="form-control {{$errors->first('detail_event') ? "is-invalid": ""}}" id="" cols="5" rows="5"></textarea>
-                        <div class="valid-feedback">
-                            {{$errors->first('detail_event')}}
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Submit form</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
 
 @section('js')

@@ -1,74 +1,68 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.global')
 
 @section('title')
     Gallery
 @endsection
 
 @section('content')
-<div class="row">
-    <div class="col-12">
-        <div class="page-title-box">
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Gallery</li>
-                </ol>
+<section class="section">
+    <div class="section-header">
+        <h1>Gallery Page</h1>
+    </div>
+    <div class="section-body">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <label class="form-label"> Thumbnail </label>
+                    </div>
+                    <div class="col-12 col-md-10 col-lg-10">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <button id="button-thumbnail" data-input="input_post_thumbnail"
+                                    class="btn btn-primary" type="button">
+                                    Browse
+                                </button>
+                            </div>
+                            <input id="input_post_thumbnail" name="gambar" value="{{ old('gambar') }}" type="text" class="form-control {{$errors->first('gambar') ? "is-invalid": ""}}" placeholder="" readonly />
+                            <div class="invalid-feedback">
+                                {{$errors->first('gambar')}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-2 col-lg-2">
+                        <button type="submit" class="btn btn-info col-12 add-image">Submit</button>
+                    </div>
+                </div>
+                <div class="row card-image">
+                @forelse ($galleries as $gambar)
+
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="{{ asset($gambar->gambar) }}" style="display: block; height: auto; width: 100%;" alt="">
+                            </div>
+                            <div class="card-footer">
+                                <button onclick="destroy(this.id)" id="{{$gambar->id}}"
+                                    class="btn btn-danger col-12">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+
+                @empty
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                Gambar Belum Dimasukkan
+                            </div>
+                        </div>
+                    </div>
+                @endforelse
+                </div>
             </div>
-            <h4 class="page-title">Gallery</h4>
         </div>
     </div>
-</div>
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-12">
-                <label class="form-label"> Thumbnail </label>
-            </div>
-            <div class="col-12 col-md-10 col-lg-10">
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <button id="button-thumbnail" data-input="input_post_thumbnail"
-                            class="btn btn-primary" type="button">
-                            Browse
-                        </button>
-                    </div>
-                    <input id="input_post_thumbnail" name="gambar" value="{{ old('gambar') }}" type="text" class="form-control {{$errors->first('gambar') ? "is-invalid": ""}}" placeholder="" readonly />
-                    <div class="invalid-feedback">
-                        {{$errors->first('gambar')}}
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-2 col-lg-2">
-                <button type="submit" class="btn btn-info col-12 add-image">Submit</button>
-            </div>
-        </div>
-        <div class="row card-image">
-        @forelse ($galleries as $gambar)
-        
-            <div class="col-12 col-md-4 col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="{{ asset($gambar->gambar) }}" style="display: block; height: auto; width: 100%;" alt="">
-                    </div>
-                    <div class="card-footer">
-                        <button onclick="destroy(this.id)" id="{{$gambar->id}}"
-                            class="btn btn-danger col-12">Delete</button>
-                    </div>
-                </div>
-            </div>
-        
-        @empty
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body text-center">
-                        Gambar Belum Dimasukkan
-                    </div>
-                </div>
-            </div>
-        @endforelse
-        </div>
-    </div>
-</div>
+</section>
 @endsection
 
 @section('js')
@@ -143,7 +137,7 @@
             if (result.isConfirmed) {
                 //ajax delete
                 jQuery.ajax({
-                    url: `hero/destroy/${id}`,
+                    url: `gallery/${id}`,
                     data: {
                         "id": id,
                         "_token": token

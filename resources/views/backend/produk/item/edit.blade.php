@@ -1,4 +1,4 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.global')
 
 @section('title', 'Edit Product')
 
@@ -7,82 +7,73 @@
 @endsection
 
 @section('content')
-<!-- start page title -->
-<div class="row">
-    <div class="col-12">
-        <div class="page-title-box">
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Product</a></li>
-                    <li class="breadcrumb-item active">Edit Product</li>
-                </ol>
-            </div>
-            <h4 class="page-title">Product</h4>
-        </div>
+<section class="section">
+    <div class="section-header">
+        <h1>Edit Spesial Menu</h1>
     </div>
-</div>
-<!-- end page title -->
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
-                    <div class="mb-3">
-                        <label class="form-label" for="nama_produk">Product Name</label>
-                        <input type="text" name="nama_produk" class="form-control {{$errors->first('nama_produk') ? "is-invalid": ""}}" placeholder="Product Name" value="{{ old('nama_produk') ? old('nama_produk') : $product->nama_produk }}">
-                        <div class="invalid-feedback">
-                            {{$errors->first('nama_produk')}}
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="kategori" class="form-label">Category</label>
-                        <select name="category_id" id="" class="form-control {{ $errors->first('category_id') ? "is-invalid": ""}}">
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ $product->category_id === $category->id ? "selected" : null}}>{{ $category->nama_kategori }}</option>
-                            @endforeach
-                        </select>
-                        <div class="invalid-feedback">
-                            {{$errors->first('category_id')}}
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"> Gambar </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <button id="button-gambar" data-input="input_post_background"
-                                    class="btn btn-primary" type="button">
-                                    Browse
-                                </button>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('put')
+                            <div class="mb-3">
+                                <label class="form-label" for="nama_produk">Product Name</label>
+                                <input type="text" name="nama_produk" class="form-control {{$errors->first('nama_produk') ? "is-invalid": ""}}" placeholder="Product Name" value="{{ old('nama_produk') ? old('nama_produk') : $product->nama_produk }}">
+                                <div class="invalid-feedback">
+                                    {{$errors->first('nama_produk')}}
+                                </div>
                             </div>
-                            <input id="input_post_background" name="gambar" value="{{ old('gambar') ? old('gambar') : asset($product->gambar) }}" type="text" class="form-control {{$errors->first('gambar') ? "is-invalid": ""}}" placeholder="" readonly />
-                            <div class="invalid-feedback">
-                                {{$errors->first('gambar')}}
+                            <div class="mb-3">
+                                <label for="kategori" class="form-label">Category</label>
+                                <select name="category_id" id="" class="form-control {{ $errors->first('category_id') ? "is-invalid": ""}}">
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" {{ $product->category_id === $category->id ? "selected" : null}}>{{ $category->nama_kategori }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    {{$errors->first('category_id')}}
+                                </div>
                             </div>
-                        </div>
+                            <div class="mb-3">
+                                <label class="form-label"> Gambar </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button id="button-gambar" data-input="input_post_background"
+                                            class="btn btn-primary" type="button">
+                                            Browse
+                                        </button>
+                                    </div>
+                                    <input id="input_post_background" name="gambar" value="{{ old('gambar') ? old('gambar') : asset($product->gambar) }}" type="text" class="form-control {{$errors->first('gambar') ? "is-invalid": ""}}" placeholder="" readonly />
+                                    <div class="invalid-feedback">
+                                        {{$errors->first('gambar')}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="harga">Price</label>
+                                <input type="number" name="harga" class="form-control {{$errors->first('harga') ? "is-invalid": ""}}" placeholder="Product Price" value="{{ old('harga') ? old('harga') : $product->harga }}">
+                                <div class="invalid-feedback">
+                                    {{$errors->first('harga')}}
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="nama_event">Description</label>
+                                <textarea id="input_post_content" name="deskripsi" class="form-control {{$errors->first('deskripsi') ? "is-invalid": ""}}" id="" cols="5" rows="5">{{ old('deskripsi') ? old('deskripsi') : $product->deskripsi }}</textarea>
+                                <div class="valid-feedback">
+                                    {{$errors->first('deskripsi')}}
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </form>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="harga">Price</label>
-                        <input type="number" name="harga" class="form-control {{$errors->first('harga') ? "is-invalid": ""}}" placeholder="Product Price" value="{{ old('harga') ? old('harga') : $product->harga }}">
-                        <div class="invalid-feedback">
-                            {{$errors->first('harga')}}
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="nama_event">Description</label>
-                        <textarea id="input_post_content" name="deskripsi" class="form-control {{$errors->first('deskripsi') ? "is-invalid": ""}}" id="" cols="5" rows="5">{{ old('deskripsi') ? old('deskripsi') : $product->deskripsi }}</textarea>
-                        <div class="valid-feedback">
-                            {{$errors->first('deskripsi')}}
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Submit form</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
 
 @section('js')

@@ -74,6 +74,16 @@ class GalleryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+        $gallery->delete();
+        if($gallery){
+            return response()->json([
+                'status' => 'success'
+            ]);
+        }else{
+            return response()->json([
+                'status' => 'error'
+            ]);
+        }
     }
 }
