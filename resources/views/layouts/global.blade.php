@@ -53,7 +53,7 @@
           @endif
           <li><a class="nav-link scrollto o" href="#gallery">Galeri</a></li>
           <li><a class="nav-link scrollto" href="#reservation">Hubungi Kami</a></li>
-          <li><a class="getstarted scrollto" target="_blank" href="https://larasgardenreston.majooshop.id/">E - Menu</a></li>
+          <li><a class="getstarted scrollto" target="_blank" href="https://laras-garden-resto.majooshop.id">E - Menu</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
