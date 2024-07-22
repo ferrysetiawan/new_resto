@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
