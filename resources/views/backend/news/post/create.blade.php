@@ -7,7 +7,7 @@
 @section('style')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 @endsection
 
 @section('content')
@@ -166,6 +166,7 @@
 <script src="{{ asset('backend/assets/tinymce5/jquery.tinymce.min.js') }}"></script>
     <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
     <script src="{{ asset('backend/assets/tinymce5/tinymce.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#input_post_content").tinymce({
@@ -223,28 +224,30 @@
             let categories = $(this).val();
             $('#input_post_slug').val(generateSlug(categories));
         });
+
+        $('#select_post_tag').select2({
+                allowClear: true,
+                ajax: {
+                    url: "{{ route('tags.select') }}",
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                            return {
+                                text: item.title,
+                                id: item.id
+                            }
+                            })
+                        };
+                    }
+                }
+            });
     });
     </script>
     <script>
         //select2 tag
-        $('#select_post_tag').select2({
-        allowClear: true,
-        ajax: {
-            url: "{{ route('tags.select') }}",
-            dataType: 'json',
-            delay: 250,
-            processResults: function(data) {
-                return {
-                    results: $.map(data, function(item) {
-                    return {
-                        text: item.title,
-                        id: item.id
-                    }
-                    })
-                };
-            }
-        }
-        });
+
     </script>
 
 @endsection
