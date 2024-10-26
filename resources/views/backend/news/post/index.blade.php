@@ -57,11 +57,11 @@
                                     </p>
                                     <div class="float-right">
                                         <!-- detail -->
-                                        <a href="{{ route('artikel.show', $post->id) }}" class="btn btn-sm btn-primary" role="button">
+                                        <a href="{{ route('post.show', $post->id) }}" class="btn btn-sm btn-primary" role="button">
                                             view
                                         </a>
                                         <!-- edit -->
-                                        <a href="{{ route('artikel.edit', $post->id) }}" class="btn btn-sm btn-info" role="button">
+                                        <a href="{{ route('post.edit', $post->id) }}" class="btn btn-sm btn-info" role="button">
                                             edit
                                         </a>
                                         <!-- delete -->
