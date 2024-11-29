@@ -20,7 +20,8 @@
             <div class="location-wrap mx-3 py-3 py-lg-0">
                 <h5 class="text-white">
                     <strong>LIVE MUSIC</strong><br>
-                    Dinner (FRI-SAT-SUN)<br>
+                    Saturday | 20.00 - 23.00<br>
+                    Sunday   | 11.00 - 15.00
                 </h5>
             </div>
     </div>
