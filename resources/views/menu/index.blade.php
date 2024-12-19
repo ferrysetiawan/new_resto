@@ -18,8 +18,7 @@
                                         <h1>{{ $item->nama_produk }}</h1>
                                         <p class="price">{{ $item->harga }}</p>
                                     </div>
-                                    <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere
-                                        quia quae dolores dolorem tempore.</p>
+                                    <p class="description">{{ $item->penyajian != null ? $item->penyajian : '-' }}</p>
                                 </div>
                             </div>
                         </div>
