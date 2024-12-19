@@ -44,19 +44,18 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-            <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
-            <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
-            <li><a class="nav-link scrollto" href="#food_menu">Menu</a></li>
-            <li><a class="nav-link scrollto" href="#team">Tim</a></li>
-            @if ($countEvent >= 1)
-            <li><a class="nav-link scrollto" href="#event">Acara</a></li>
-            @endif
-            @if ($countNews >= 1)
-            <li><a class="nav-link scrollto" href="#news">Berita</a></li>
-            @endif
-            <li><a class="nav-link scrollto o" href="#gallery">Galeri</a></li>
-            <li><a class="nav-link scrollto" href="#reservation">Hubungi Kami</a></li>
-            <li><a class="getstarted scrollto" target="_blank" href="https://laras-garden-resto.majooshop.id">E - Menu</a></li>
+                <li><a class="nav-link scrollto active" href="{{ route('home') }}">Beranda</a></li>
+                <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('menu.index') }}">Menu</a></li>
+                <li><a class="nav-link scrollto" href="#team">Tim</a></li>
+                @if ($countEvent >= 1)
+                <li><a class="nav-link scrollto" href="#event">Acara</a></li>
+                @endif
+                @if ($countNews >= 1)
+                <li><a class="nav-link scrollto" href="#news">Berita</a></li>
+                @endif
+                <li><a class="nav-link scrollto o" href="#gallery">Galeri</a></li>
+                <li><a class="nav-link scrollto" href="#reservation">Hubungi Kami</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
@@ -103,6 +102,7 @@
   <script src="{{ asset('larasGarden/js/main.js') }}"></script>
   <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
   {{-- <script src="{{ asset('larasGarden/js/ticker.js') }}"></script> --}}
+  @yield('js')
   <script>
     const galleryLightbox = GLightbox({
       selector: '.gallery-lightbox'

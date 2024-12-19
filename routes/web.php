@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\EventController as ControllersEventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
+Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
 Route::get('/event/{slug}', [ControllersEventController::class, 'detail'])->name('events.detail');
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/search', [NewsController::class, 'search'])->name('news.search');

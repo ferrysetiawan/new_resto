@@ -1841,6 +1841,66 @@ button:hover {
   padding-left: 90px;
 }
 
+.menu {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.menu .menu-item {
+  background-color: #fff;
+  border: 1px solid color-mix(in srgb, #444444, transparent 90%);
+  border-radius: 5px;
+}
+
+.menu .menu-content {
+  padding: 15px;
+}
+
+.menu .menu-content h1 {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.menu .menu-content .price {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: color-mix(in srgb, #444444, transparent 20%);
+}
+
+.menu .menu-content .description {
+  font-size: 14px;
+  color: color-mix(in srgb, #444444, transparent 20%);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.section-title h1 {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 0;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #444444;
+  position: relative;
+  display: inline-block; /* Tambahkan ini agar pseudo-element tepat di bawah teks */
+}
+
+.section-title .line {
+  flex: 1;
+  height: 4px; /* Ketebalan garis */
+  background-color: #444444;
+  margin-left: 10px;
+}
+
 .gallery {
   background-color: #fff !important;
   padding-top: 130px;
