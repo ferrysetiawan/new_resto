@@ -12,7 +12,7 @@
                     @foreach ($category->product as $item)
                         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4">
                             <div class="menu-item">
-                                <img src="{{ asset($item->gambar) }}" class="img-fluid" alt="...">
+                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid" alt="...">
                                 <div class="menu-content">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h1>{{ $item->nama_produk }}</h1>
