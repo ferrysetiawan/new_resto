@@ -21,6 +21,9 @@
   <link rel="stylesheet" href="{{ asset('larasGarden/style/util.css') }}">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"> -->
   <link rel="stylesheet" href="{{ asset('larasGarden/style/style.css') }}">
+
+  @yield('style')
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BQS560ZGY"></script>
   <script>
@@ -34,35 +37,33 @@
 </head>
 
 <body>
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
+    <header id="header">
+        <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="index.html"><img class="logo" width="100px" src="{{ asset('larasGarden/image/logo.svg') }}"></a>
+        <a href="index.html"><img class="logo" width="100px" src="{{ asset('larasGarden/image/logo.svg') }}"></a>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
-          <li><a class="nav-link scrollto" href="#food_menu">Menu</a></li>
-          <li><a class="nav-link scrollto" href="#team">Tim</a></li>
-          @if ($countEvent >= 1)
-          <li><a class="nav-link scrollto" href="#event">Acara</a></li>
-          @endif
-          @if ($countNews >= 1)
-          <li><a class="nav-link scrollto" href="#news">Berita</a></li>
-          @endif
-          <li><a class="nav-link scrollto o" href="#gallery">Galeri</a></li>
-          <li><a class="nav-link scrollto" href="#reservation">Hubungi Kami</a></li>
-          <li><a class="getstarted scrollto" target="_blank" href="https://laras-garden-resto.majooshop.id">E - Menu</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
+        <nav id="navbar" class="navbar">
+            <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
+            <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
+            <li><a class="nav-link scrollto" href="#food_menu">Menu</a></li>
+            <li><a class="nav-link scrollto" href="#team">Tim</a></li>
+            @if ($countEvent >= 1)
+            <li><a class="nav-link scrollto" href="#event">Acara</a></li>
+            @endif
+            @if ($countNews >= 1)
+            <li><a class="nav-link scrollto" href="#news">Berita</a></li>
+            @endif
+            <li><a class="nav-link scrollto o" href="#gallery">Galeri</a></li>
+            <li><a class="nav-link scrollto" href="#reservation">Hubungi Kami</a></li>
+            <li><a class="getstarted scrollto" target="_blank" href="https://laras-garden-resto.majooshop.id">E - Menu</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
 
-    </div>
-  </header>
-
+        </div>
+    </header>
   @yield('content')
-
   <!-- section footer -->
   <footer>
     <div class="container">
@@ -101,6 +102,7 @@
   <script src="{{ asset('larasGarden/js/app.min.js') }}"></script>
   <script src="{{ asset('larasGarden/js/main.js') }}"></script>
   <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
+  {{-- <script src="{{ asset('larasGarden/js/ticker.js') }}"></script> --}}
   <script>
     const galleryLightbox = GLightbox({
       selector: '.gallery-lightbox'

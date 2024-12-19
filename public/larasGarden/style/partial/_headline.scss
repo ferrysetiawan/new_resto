@@ -1,0 +1,120 @@
+.bg0 {
+    background-color: #fff;
+}
+
+.how1 {
+    position: relative;
+}
+
+.how1-child1 {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    background: rgba(0,0,0,0.5);
+    background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    background: -o-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+  }
+
+  .how1:hover .how1-child1 {
+    opacity: 0.3;
+  }
+
+  .how1-child2 {
+    z-index: 3;
+  }
+
+.size-a-3 {
+    width: 100%;
+    height: 440px;
+}
+
+.size-a-4 {
+    width: 100%;
+    height: 244px;
+}
+
+.size-a-5 {
+    width: 100%;
+    height: 194px;
+  }
+
+.size-a-6 {
+    max-width: 100%;
+    max-height: 72px;
+  }
+
+  .size-a-7 {
+    max-width: 100%;
+    max-height: 54px;
+  }
+
+  .size-h-1 {
+    max-height: 45px;
+  }
+
+.how-txt1 {
+    white-space: normal;
+    display: box;
+    display:-moz-box;
+    display:-webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .f1-s-2 {
+    font-family: Roboto-Regular;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .f1-s-3 {
+    font-family: Roboto-Regular;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .f1-s-4 {
+    font-family: Roboto-Bold;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .f1-l-1 {
+    font-family: Roboto-Medium;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .f1-l-2 {
+    font-family: Roboto-Medium;
+    font-size: 22px;
+    line-height: 1.272727;
+  }
+
+  .f1-m-1 {
+    font-family: Roboto-Medium;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .cl0 {color: #fff;}
+  .cl11 {color: #ccc;}
+  .hov-cl10:hover {color: #17b978;}
+
+  .bocl0 {border-color: #fff;}
+
+  .hov-btn1:hover {
+    background-color: #17b978;
+    border-color: #17b978;
+    color: #fff;
+  }
+
+
