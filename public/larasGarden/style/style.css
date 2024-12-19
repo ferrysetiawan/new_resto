@@ -2294,7 +2294,6 @@ footer .right-text-content ul li a:hover {
 }
 
 .bg-img1 a {
-  position: relative;
   z-index: 2; /* Supaya konten tetap terlihat di atas overlay */
 }
 
