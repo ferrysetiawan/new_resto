@@ -116,6 +116,7 @@ Route::group(['prefix' =>'dashboard', 'middleware' => ['auth']], function(){
             Route::post('/store', [ProductController::class, 'store'])->name('product.store');
             Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
             Route::put('/update/{id}', [ProductController::class, 'update'])->name('product.update');
+            Route::post('/update-status', [ProductController::class, 'updateStatus'])->name('product.update-status');
             Route::delete('/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
         });
     });
@@ -138,7 +139,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+
 });
 
 require __DIR__.'/auth.php';

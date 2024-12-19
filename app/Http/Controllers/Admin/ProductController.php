@@ -78,6 +78,28 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
+    public function updateStatus(Request $request)
+    {
+        try {
+            // Validasi input
+            $request->validate([
+                'id' => 'required|exists:products,id',
+                'is_spesial' => 'required|boolean',
+            ]);
+
+            // Temukan produk berdasarkan ID
+            $product = Product::findOrFail($request->id);
+
+            // Update status is_spesial
+            $product->is_spesial = $request->is_spesial;
+            $product->save();
+
+            return response()->json(['status' => 'success', 'message' => 'Status berhasil diubah']);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      */

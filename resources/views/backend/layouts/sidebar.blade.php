@@ -25,7 +25,7 @@
                 <li class="{{ request()->is('dashboard/product/categoryproduct*') ? 'active' : '' }}"><a
                         class="nav-link" href="{{ route('categoryProduct.index') }}">Kategori Menu</a></li>
                 <li class="{{ request()->is('dashboard/product/productitems*') ? 'active' : '' }}"><a class="nav-link"
-                        href="{{ route('product.index') }}">Spesial Menu</a></li>
+                        href="{{ route('product.index') }}">Daftar Menu</a></li>
             </ul>
         </li>
         <li class="{{ request()->is('dashboard/chef*') ? 'active' : '' }}">

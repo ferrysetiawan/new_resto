@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('category_products', function (Blueprint $table) {
-            $table->string('gambar');
+        Schema::table('products', function (Blueprint $table) {
+            $table->boolean('is_spesial')->default(false);
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('category_products', function (Blueprint $table) {
-            $table->dropColumn('gambar');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('is_spesial');
         });
     }
 };

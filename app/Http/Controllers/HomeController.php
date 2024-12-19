@@ -29,7 +29,7 @@ class HomeController extends Controller
         $events = Event::where('tanggal', '>=' , Carbon::now())->take(3)->get();
         $news = Post::publish()->latest()->take(4)->get();
         $categoryProduct = CategoryProduct::all();
-        $product = Product::all();
+        $product = Product::where('is_spesial', 1)->get();
         return view('index', compact('product','countNews','countEvent','galleries','events','heroTitle','chefs','categoryProduct','about','specialRecipe','news'));
     }
 

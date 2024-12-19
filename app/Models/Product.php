@@ -14,8 +14,13 @@ class Product extends Model
         'category_id',
         'nama_produk',
         'deskripsi',
+        'is_spesial',
         'harga',
         'gambar'
+    ];
+
+    protected $casts = [
+        'is_spesial' => 'boolean',
     ];
 
     public function category(): BelongsTo

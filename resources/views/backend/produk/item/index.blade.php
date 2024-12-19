@@ -24,6 +24,7 @@
                                     <th>Product Name</th>
                                     <th>Category</th>
                                     <th>Price</th>
+                                    <th>Spesial</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -35,6 +36,17 @@
                                     <td>{{ $product->nama_produk }}</td>
                                     <td>{{ $product->category->nama_kategori }}</td>
                                     <td>{{ $product->harga }}</td>
+                                    <td>
+                                        <label class="custom-switch mt-2">
+                                            <input
+                                                type="checkbox"
+                                                name="custom-switch-checkbox"
+                                                class="custom-switch-input toggle-status"
+                                                data-id="{{ $product->id }}"
+                                                {{ $product->is_spesial ? 'checked' : '' }}>
+                                            <span class="custom-switch-indicator"></span>
+                                        </label>
+                                    </td>
                                     <td>
                                         <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning px-4">Edit</a>
                                         <button onclick="destroy(this.id)" id="{{$product->id}}"
@@ -57,6 +69,49 @@
 
 <script>
     $(document).ready(function () {
+        $(".toggle-status").on('change', function () {
+            let productId = $(this).data('id'); // ID Produk
+            let isSpesial = $(this).is(':checked') ? 1 : 0; // Status (1 jika checked, 0 jika tidak)
+
+            // Kirim AJAX untuk mengupdate database
+            $.ajax({
+                url: `{{ url('dashboard/product/productitems/update-status') }}`, // Endpoint untuk update status
+                type: 'POST',
+                data: {
+                    id: productId,
+                    is_spesial: isSpesial,
+                    _token: '{{ csrf_token() }}' // CSRF token
+                },
+                success: function (response) {
+                    if (response.status === "success") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: 'Status berhasil diubah!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal!',
+                            text: 'Status gagal diubah!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                },
+                error: function (xhr) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Terjadi kesalahan saat mengubah status!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+            });
+        });
         $("#basic-datatable").DataTable({
                 rowReorder: {
                     selector: 'td:nth-child(2)'
