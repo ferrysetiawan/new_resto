@@ -10,87 +10,67 @@
         <div class="row m-rl--1">
             @foreach ($news as $key => $item)
                 @if ($key == 0)
+                <!-- Artikel Utama -->
                 <div class="col-md-6 p-rl-1 p-b-2 p-t-2">
                     <div class="bg-img1 size-a-3 how1 pos-relative" style="background-image: url({{ asset($item->thumbnail) }});">
                         <a href="{{ route('news.show', $item->slug) }}" class="dis-block how1-child1 trans-03"></a>
-
                         <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
                             <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
                                 Business
                             </a>
-
                             <h3 class="how1-child2 m-t-14 m-b-10">
                                 <a href="{{ route('news.show', $item->slug) }}" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
                                     {{ $item->judul }}
                                 </a>
                             </h3>
-
                             <span class="how1-child2">
-                                <span class="f1-s-4 cl11">
-                                    Admin
-                                </span>
-
-                                <span class="f1-s-3 cl11 m-rl-3">
-                                    -
-                                </span>
-
-                                <span class="f1-s-3 cl11">
-                                    Feb 16
-                                </span>
+                                <span class="f1-s-4 cl11">Admin</span>
+                                <span class="f1-s-3 cl11 m-rl-3">-</span>
+                                <span class="f1-s-3 cl11">Feb 16</span>
                             </span>
                         </div>
                     </div>
                 </div>
-                @elseif ($key == 1)
-                <div class="col-md-6 p-rl-1 p-t-2">
-                    <div class="row m-rl--1">
-                        <div class="col-12 p-rl-1 p-b-2">
-                            <div class="bg-img1 size-a-4 how1 pos-relative" style="background-image: url({{ asset($item->thumbnail) }});">
-                                <a href="{{ route('news.show', $item->slug) }}" class="dis-block how1-child1 trans-03"></a>
-
-                                <div class="flex-col-e-s s-full p-rl-25 p-tb-24">
-                                    <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-                                        Culture
-                                    </a>
-
-                                    <h3 class="how1-child2 m-t-14">
-                                        <a href="{{ route('news.show', $item->slug) }}" class="how-txt1 size-a-7 f1-l-2 cl0 hov-cl10 trans-03">
-                                            {{ $item->judul }}
-                                        </a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        @else
-                        <div class="col-sm-6 p-rl-1 p-b-2">
-                            <div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url({{ asset($item->thumbnail) }});">
-                                <a href="{{ route('news.show', $item->slug) }}" class="dis-block how1-child1 trans-03"></a>
-
-                                <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-                                    <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-                                        Life Style
-                                    </a>
-
-                                    <h3 class="how1-child2 m-t-14">
-                                        <a href="{{ route('news.show', $item->slug) }}" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
-                                            {{ $item->judul }}
-                                        </a>
-                                    </h3>
-                                </div>
-                            </div>
+                @elseif ($key > 0 && $key <= 2)
+                <!-- Artikel Kecil Samping Kiri -->
+                <div class="col-sm-6 col-lg-3 p-rl-1 p-b-2">
+                    <div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url({{ asset($item->thumbnail) }});">
+                        <a href="{{ route('news.show', $item->slug) }}" class="dis-block how1-child1 trans-03"></a>
+                        <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
+                            <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                                Life Style
+                            </a>
+                            <h3 class="how1-child2 m-t-14">
+                                <a href="{{ route('news.show', $item->slug) }}" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+                                    {{ $item->judul }}
+                                </a>
+                            </h3>
                         </div>
                     </div>
                 </div>
-
+                @elseif ($key > 2)
+                <!-- Artikel Kecil Samping Kanan -->
+                <div class="col-sm-6 col-lg-3 p-rl-1 p-b-2">
+                    <div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url({{ asset($item->thumbnail) }});">
+                        <a href="{{ route('news.show', $item->slug) }}" class="dis-block how1-child1 trans-03"></a>
+                        <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
+                            <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                                Culture
+                            </a>
+                            <h3 class="how1-child2 m-t-14">
+                                <a href="{{ route('news.show', $item->slug) }}" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+                                    {{ $item->judul }}
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
                 @endif
-
             @endforeach
-
-
-
         </div>
     </div>
-  </section>
+</section>
+
 <section id="hero" class="d-flex align-items-center" style="background: url('{{ asset($heroTitle->gambar) }}') top center no-repeat;background-size:cover">
     <div class="container">
         <div class="row">
