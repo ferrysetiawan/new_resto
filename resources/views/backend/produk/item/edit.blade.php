@@ -53,10 +53,32 @@
                                 </div>
                             </div>
                             <div class="mb-3">
+                                <label class="form-label"> Thumbnail </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button id="button-thumbnail" data-input="input_post_thumbnail"
+                                            class="btn btn-primary" type="button">
+                                            Browse
+                                        </button>
+                                    </div>
+                                    <input id="input_post_thumbnail" name="thumbnail" value="{{ old('thumbnail') ? old('thumbnail') : asset($product->thumbnail) }}" type="text" class="form-control {{$errors->first('thumbnail') ? "is-invalid": ""}}" placeholder="" readonly />
+                                    <div class="invalid-feedback">
+                                        {{$errors->first('thumbnail')}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label" for="harga">Price</label>
                                 <input type="number" name="harga" class="form-control {{$errors->first('harga') ? "is-invalid": ""}}" placeholder="Product Price" value="{{ old('harga') ? old('harga') : $product->harga }}">
                                 <div class="invalid-feedback">
                                     {{$errors->first('harga')}}
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="penyajian">Penyajian</label>
+                                <textarea name="penyajian" class="form-control {{$errors->first('penyajian') ? "is-invalid": ""}}" id="" cols="5" rows="5">{{ old('penyajian') ? old('penyajian') : $product->penyajian }}</textarea>
+                                <div class="valid-feedback">
+                                    {{$errors->first('penyajian')}}
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -124,6 +146,7 @@
 
             //event : input background
             $('#button-gambar').filemanager('image');
+            $('#button-thumbnail').filemanager('image');
 
         });
     </script>

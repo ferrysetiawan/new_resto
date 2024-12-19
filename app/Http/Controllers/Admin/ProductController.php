@@ -35,6 +35,8 @@ class ProductController extends Controller
         Product::create([
             'nama_produk' => $request->nama_produk,
             'gambar' => parse_url($request->gambar)['path'],
+            'thumbnail' => parse_url($request->thumbnail)['path'],
+            'penyajian' => $request->penyajian,
             'harga' => $request->harga,
             'category_id' => $request->category_id,
             'deskripsi' => $request->deskripsi
@@ -70,6 +72,8 @@ class ProductController extends Controller
         $product->update([
             'nama_produk' => $request->nama_produk,
             'gambar' => parse_url($request->gambar)['path'],
+            'thumbnail' => parse_url($request->thumbnail)['path'],
+            'penyajian' => $request->penyajian,
             'harga' => $request->harga,
             'category_id' => $request->category_id,
             'deskripsi' => $request->deskripsi
