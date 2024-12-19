@@ -11,7 +11,7 @@
             @foreach ($news as $key => $item)
                 @if ($key == 0)
                 <div class="col-md-6 p-rl-1 p-b-2 p-t-2">
-                    <div class="bg-img1 size-a-3 how1 pos-relative" style="background-image: url({{ asset($item->thumbnail) }});background-size: cover; background-position: center;filter: brightness(50%);">
+                    <div class="bg-img1 size-a-3 how1 pos-relative" style="background-image: url({{ asset($item->thumbnail) }});background-size: cover; background-position: center;">
                         <a href="{{ route('news.show', $item->slug) }}" class="dis-block how1-child1 trans-03"></a>
 
                         <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
