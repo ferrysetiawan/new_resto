@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<section class="bg0">
+{{-- <section class="bg0">
     <div class="">
         <div class="row m-rl--1">
             @foreach ($news as $key => $item)
@@ -109,7 +109,7 @@
 
         </div>
     </div>
-  </section>
+</section> --}}
 <section id="hero" class="d-flex align-items-center" style="background: url('{{ asset($heroTitle->gambar) }}') top center no-repeat;background-size:cover">
     <div class="container">
         <div class="row">
@@ -134,6 +134,33 @@
                 </h5>
             </div>
     </div>
+    </div>
+</section>
+<section id="headline" class="headline section">
+    <div class="container section-title-headline" data-aos="fade-up">
+        <h2>Headline</h2>
+        <p>Sajian informasi terkini seputar pengalaman kuliner berkelas, dari menu favorit hingga keunikan lokasi</p>
+    </div>
+    <div class="container">
+        <div class="carousel-wrap">
+            <div class="owl-carousel">
+                @foreach ($news as $item)
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="{{ asset($item->thumbnail) }}" alt="Gambar ilustrasi untuk berita pertama">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">{{ $item->created_at->format('d F Y') }}</p>
+                            <h3 class="news-title">
+                                <a href="">{{ $item->judul }}</a>
+                            </h3>
+                        </div>
+                    </div>
+                @endforeach
+                <!-- Card 1 -->
+
+            </div>
+        </div>
     </div>
 </section>
 <section class="section-padding-about section" id="about">

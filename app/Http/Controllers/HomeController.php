@@ -27,7 +27,7 @@ class HomeController extends Controller
         $countEvent = Event::where('tanggal', '>=', Carbon::now())->count();
         $countNews = Post::count();
         $events = Event::where('tanggal', '>=' , Carbon::now())->take(3)->get();
-        $news = Post::publish()->latest()->take(4)->get();
+        $news = Post::publish()->latest()->take(3)->get();
         $categoryProduct = CategoryProduct::all();
         $product = Product::where('is_spesial', 1)->get();
         return view('index', compact('product','countNews','countEvent','galleries','events','heroTitle','chefs','categoryProduct','about','specialRecipe','news'));

@@ -107,6 +107,29 @@
     const galleryLightbox = GLightbox({
       selector: '.gallery-lightbox'
     });
+
+    $("#headline .owl-carousel").owlCarousel({
+    loop: true,
+    margin: 20,
+    nav: true,
+    navText: [],
+    autoplay: true,
+    autoplayHoverPause: true,
+    responsive: {
+        0:{
+            items:1
+        },
+        768:{
+            items:2
+        },
+        992:{
+            items:2
+        },
+        1200:{
+            items:3
+        }
+    }
+});
   </script>
   <script>
     document.addEventListener('readystatechange', event => {

@@ -139,4 +139,129 @@
     color: #fff;
   }
 
+  .headline {
+    padding: 60px 0;
+  }
+
+  .headline .section-title-headline {
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.headline .section-title-headline h2 {
+    font-family: 'CorbelBold', sans-serif !important;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+}
+
+.headline .section-title-headline h2:after {
+    content: "";
+    margin: 0 0 10px 15px;
+    width: 75px;
+    height: 4px;
+    background: #5C7B74;
+    display: inline-block;
+}
+
+.headline .section-title-headline p {
+    font-size: 20px !important;
+    margin-bottom: 0;
+}
+
+/* Kontainer utama carousel */
+.owl-carousel {
+    display: flex;
+    justify-content: center; /* Menempatkan card di tengah */
+    gap: 20px; /* Jarak antar card */
+    flex-wrap: wrap; /* Agar responsif pada layar kecil */
+    max-width: 1200px; /* Batas lebar carousel */
+    margin: 0 auto; /* Tengah secara horizontal */
+    padding: 20px 0; /* Memberi sedikit jarak atas dan bawah */
+}
+
+/* Tambahkan tinggi minimum untuk setiap card */
+.news-card {
+    display: flex; /* Aktifkan Flexbox untuk memastikan semua elemen dalam card mengikuti tinggi */
+    flex-direction: column; /* Atur elemen ke arah vertikal */
+    justify-content: space-between; /* Pastikan konten tersebar merata */
+    flex: 0 1 458px; /* Ukuran tetap */
+    max-width: 458px; /* Batas maksimal lebar */
+    min-height: 350px; /* Tetapkan tinggi minimum untuk card */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Gambar Card */
+.news-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* Konten Card */
+.news-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Sebar elemen di dalamnya */
+    align-items:flex-start;
+    padding: 15px;
+    flex-grow: 1; /* Pastikan bagian konten fleksibel mengikuti tinggi card */
+    gap: 10px;
+}
+
+/* Tanggal Berita */
+.news-date {
+    font-size: 18px;
+    color: #888;
+    margin: 0;
+}
+
+/* Judul Berita */
+.news-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    line-height: 1.4;
+    text-overflow: ellipsis; /* Tambahkan elipsis jika teks terlalu panjang */
+    overflow: hidden; /* Pastikan teks yang terlalu panjang tidak tumpah */
+    display: -webkit-box; /* Gunakan trik untuk membatasi baris */
+    -webkit-line-clamp: 2; /* Batasi hingga dua baris */
+    -webkit-box-orient: vertical;
+}
+
+.news-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.news-title a:hover {
+    color: #5C7B74;
+}
+
+/* Responsivitas: satu card per baris di layar kecil */
+@media (max-width: 768px) {
+    .news-card {
+        flex: 0 1 100%;
+        max-width: 100%;
+    }
+
+    .owl-carousel {
+        gap: 10px;
+    }
+}
+
+
+
+
 
