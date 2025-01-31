@@ -163,6 +163,114 @@
         </div>
     </div>
 </section>
+<!-- section event -->
+@if ($countEvent >= 1)
+<section class="section-event" id="event">
+    <div class="wrap-slick2">
+        <div class="slick2">
+            @foreach ($events as $event)
+            <div class="item-slick2 item1-slick2" style="background-image: url('{{ asset($event->background) }}');">
+                <div class="wrap-content-slide2 p-t-115 p-b-208">
+                    <div class="container">
+                        <!-- - -->
+                        {{-- <div class="title-event t-center m-b-52">
+                            <span class="tit2 p-l-15 p-r-15">
+                                Akan Datang
+                            </span>
+
+                            <h3 class="tit6 t-center p-l-15 p-r-15 p-t-3">
+                                Acara
+                            </h3>
+                        </div> --}}
+                        <div class="section-title-event align-items-center">
+                            <h2>Preview</h2>
+                            <p>Acara Yang Akan Datang</p>
+                        </div>
+
+                        <!-- Block2 -->
+                        <div class="blo2 flex-w flex-str flex-col-c-m-lg animated visible-false" data-appear="zoomIn">
+                            <!-- Pic block2 -->
+                            <a href="#" class="wrap-pic-blo2 bg1-blo2"
+                                style="background-image: url('{{ asset($event->thumbnail) }}');">
+                                <div class="time-event size10 txt6 effect1">
+                                    <span class="txt-effect1 flex-c-m t-center">
+                                        {{ \Carbon\Carbon::parse($event->tanggal)->isoFormat('dddd, D MMMM Y') }} -
+                                        {{ \Carbon\Carbon::parse($event->tanggal)->format('H:i') }} WIB
+                                    </span>
+                                </div>
+                            </a>
+
+                            <!-- Text block2 -->
+                            <div class="wrap-text-blo2 flex-col-c-m p-l-40 p-r-40 p-t-45 p-b-30">
+                                <h4 class="tit7 t-center m-b-10">
+                                    {{ $event->nama_event }}
+                                </h4>
+
+                                <p class="t-center">
+                                    {{ $event->summary }}
+                                </p>
+
+                                <div class="clockdiv flex-sa-m flex-w w-full m-t-40" data-date="{{ $event->tanggal }}">
+
+                                    <div class="size11 flex-col-c-m">
+                                        <span id="days" class="dis-block t-center txt7 m-b-2 days">
+                                            00
+                                        </span>
+
+                                        <span class="dis-block t-center txt8">
+                                            Days
+                                        </span>
+                                    </div>
+
+                                    <div class="size11 flex-col-c-m">
+                                        <span class="dis-block t-center txt7 m-b-2 hours">
+                                            00
+                                        </span>
+
+                                        <span class="dis-block t-center txt8">
+                                            Hours
+                                        </span>
+                                    </div>
+
+                                    <div class="size11 flex-col-c-m">
+                                        <span id="minutes" class="dis-block t-center txt7 m-b-2 minutes">
+                                            00
+                                        </span>
+
+                                        <span class="dis-block t-center txt8">
+                                            Minutes
+                                        </span>
+                                    </div>
+
+                                    <div class="size11 flex-col-c-m">
+                                        <span id="seconds" class="dis-block t-center txt7 m-b-2 seconds">
+                                            00
+                                        </span>
+
+                                        <span class="dis-block t-center txt8">
+                                            Seconds
+                                        </span>
+                                    </div>
+                                </div>
+
+
+                                <a href="{{ route('events.detail',$event->slug) }}" class="txt4 m-t-40">
+                                    Lihat Detail
+                                    <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+        <div class="wrap-slick2-dots"></div>
+    </div>
+</section>
+@endif
+<!-- end section event -->
 <section class="section-padding-about section" id="about">
     <div class="container">
         <div class="section-content">
@@ -340,114 +448,7 @@
     </div>
 </section>
 <!-- end section chef -->
-<!-- section event -->
-@if ($countEvent >= 1)
-<section class="section-event" id="event">
-    <div class="wrap-slick2">
-        <div class="slick2">
-            @foreach ($events as $event)
-            <div class="item-slick2 item1-slick2" style="background-image: url('{{ asset($event->background) }}');">
-                <div class="wrap-content-slide2 p-t-115 p-b-208">
-                    <div class="container">
-                        <!-- - -->
-                        {{-- <div class="title-event t-center m-b-52">
-                            <span class="tit2 p-l-15 p-r-15">
-                                Akan Datang
-                            </span>
 
-                            <h3 class="tit6 t-center p-l-15 p-r-15 p-t-3">
-                                Acara
-                            </h3>
-                        </div> --}}
-                        <div class="section-title-event align-items-center">
-                            <h2>Preview</h2>
-                            <p>Acara Yang Akan Datang</p>
-                        </div>
-
-                        <!-- Block2 -->
-                        <div class="blo2 flex-w flex-str flex-col-c-m-lg animated visible-false" data-appear="zoomIn">
-                            <!-- Pic block2 -->
-                            <a href="#" class="wrap-pic-blo2 bg1-blo2"
-                                style="background-image: url('{{ asset($event->thumbnail) }}');">
-                                <div class="time-event size10 txt6 effect1">
-                                    <span class="txt-effect1 flex-c-m t-center">
-                                        {{ \Carbon\Carbon::parse($event->tanggal)->isoFormat('dddd, D MMMM Y') }} -
-                                        {{ \Carbon\Carbon::parse($event->tanggal)->format('H:i') }} WIB
-                                    </span>
-                                </div>
-                            </a>
-
-                            <!-- Text block2 -->
-                            <div class="wrap-text-blo2 flex-col-c-m p-l-40 p-r-40 p-t-45 p-b-30">
-                                <h4 class="tit7 t-center m-b-10">
-                                    {{ $event->nama_event }}
-                                </h4>
-
-                                <p class="t-center">
-                                    {{ $event->summary }}
-                                </p>
-
-                                <div class="clockdiv flex-sa-m flex-w w-full m-t-40" data-date="{{ $event->tanggal }}">
-
-                                    <div class="size11 flex-col-c-m">
-                                        <span id="days" class="dis-block t-center txt7 m-b-2 days">
-                                            00
-                                        </span>
-
-                                        <span class="dis-block t-center txt8">
-                                            Days
-                                        </span>
-                                    </div>
-
-                                    <div class="size11 flex-col-c-m">
-                                        <span class="dis-block t-center txt7 m-b-2 hours">
-                                            00
-                                        </span>
-
-                                        <span class="dis-block t-center txt8">
-                                            Hours
-                                        </span>
-                                    </div>
-
-                                    <div class="size11 flex-col-c-m">
-                                        <span id="minutes" class="dis-block t-center txt7 m-b-2 minutes">
-                                            00
-                                        </span>
-
-                                        <span class="dis-block t-center txt8">
-                                            Minutes
-                                        </span>
-                                    </div>
-
-                                    <div class="size11 flex-col-c-m">
-                                        <span id="seconds" class="dis-block t-center txt7 m-b-2 seconds">
-                                            00
-                                        </span>
-
-                                        <span class="dis-block t-center txt8">
-                                            Seconds
-                                        </span>
-                                    </div>
-                                </div>
-
-
-                                <a href="{{ route('events.detail',$event->slug) }}" class="txt4 m-t-40">
-                                    Lihat Detail
-                                    <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-
-        <div class="wrap-slick2-dots"></div>
-    </div>
-</section>
-@endif
-<!-- end section event -->
 <!-- section news -->
 
 {{-- @if ($countNews >= 1)
