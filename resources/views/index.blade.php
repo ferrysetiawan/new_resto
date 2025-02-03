@@ -152,7 +152,7 @@
                         <div class="news-content">
                             <p class="news-date">{{ $item->created_at->format('d F Y') }}</p>
                             <h3 class="news-title">
-                                <a href="">{{ $item->judul }}</a>
+                                <a href="{{ route('news.show', $item->slug) }}">{{ $item->judul }}</a>
                             </h3>
                         </div>
                     </div>
