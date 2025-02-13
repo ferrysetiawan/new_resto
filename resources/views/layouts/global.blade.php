@@ -44,18 +44,18 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="{{ route('home') }}">Beranda</a></li>
-                <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
-                <li><a class="nav-link scrollto" href="{{ route('menu.index') }}">Menu</a></li>
-                <li><a class="nav-link scrollto" href="#team">Tim</a></li>
+                <li><a class="nav-link {{ request()->is('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a></li>
+                <li><a class="nav-link" href="#about">Tentang Kami</a></li>
+                <li><a class="nav-link {{ request()->is('menu') ? 'active' : '' }}" href="{{ route('menu.index') }}">Menu</a></li>
+                <li><a class="nav-link" href="#team">Tim</a></li>
                 @if ($countEvent >= 1)
-                <li><a class="nav-link scrollto" href="#event">Acara</a></li>
+                <li><a class="nav-link" href="#event">Acara</a></li>
                 @endif
                 @if ($countNews >= 1)
-                <li><a class="nav-link scrollto" href="#news">Berita</a></li>
+                <li><a class="nav-link" href="#news">Berita</a></li>
                 @endif
-                <li><a class="nav-link scrollto o" href="#gallery">Galeri</a></li>
-                <li><a class="nav-link scrollto" href="#reservation">Hubungi Kami</a></li>
+                <li><a class="nav-link" href="#gallery">Galeri</a></li>
+                <li><a class="nav-link" href="#reservation">Hubungi Kami</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
