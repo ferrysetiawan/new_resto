@@ -44,7 +44,7 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link {{ request()->is('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a></li>
+                <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a></li>
                 <li><a class="nav-link" href="#about">Tentang Kami</a></li>
                 <li><a class="nav-link {{ request()->is('menu') ? 'active' : '' }}" href="{{ route('menu.index') }}">Menu</a></li>
                 <li><a class="nav-link" href="#team">Tim</a></li>
